@@ -12,6 +12,7 @@ server
 coverage
 .metalsmith-build
 .eslintcache
+yarn.lock
 .webpack-stats.json
 .webpack-assets.json
 
