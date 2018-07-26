@@ -25,5 +25,38 @@ $(async () => {
 	consoleErrorFix();
 	ieViewportFix();
 
-	console.log('YaY, my first ES6-Module !!!!');
+
+  $.ajaxPrefilter( function (options) {
+      if (options.crossDomain && jQuery.support.cors) {
+        var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+        options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+      //options.url = "http://cors.corsproxy.io/url=" + options.url;
+    }
+  });
+
+  $.get(
+    "https://cagnotte.me/201-margaux-30-ans-a-l-etang",
+    function (response) {
+      let price = $(response).find('.collected-amount-label').text()
+
+      $( "#cagnotte" ).html( price );
+
+      price = parseInt(price, 10)
+
+      $(".gift").each(function() {
+        const itemPrice = parseInt($(this).find('.price').text(), 10)
+        const progress = $(this).find('.progress')
+
+        if(itemPrice < price) {
+          price -= itemPrice
+          progress.width('100%').text('100%')
+        } else {
+          const percent = Math.floor((price / itemPrice) * 100)
+          progress.width(percent+'%').text(percent+'%')
+        }
+      })
+
+
+    });
+
 });
