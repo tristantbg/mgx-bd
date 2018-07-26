@@ -17,7 +17,7 @@
   "private": true,
   "scripts": {
     "start": "npm-run-all clean:dev handlebars --parallel handlebars:watch webpack:server eslint:watch stylelint:watch --silent",
-    "build": "npm-run-all handlebars clean webpack --silent",
+    "build": "npm-run-all security handlebars clean webpack --silent",
     "build:dev": "npm-run-all security test handlebars clean:dev webpack:dev --silent",
     "build:serve": "serve dist --open",
     "build:analyze": "npm run webpack:stats --silent && webpack-bundle-analyzer ./.webpack-stats.json ./dist -s parsed",
