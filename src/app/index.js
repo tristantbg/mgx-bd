@@ -46,14 +46,15 @@ $(async () => {
       $(".gift").each(function() {
         const itemPrice = parseInt($(this).find('.price').text(), 10)
         const progress = $(this).find('.progress')
-
-        if(itemPrice < price) {
+        if(price <= 0) return
+        if(itemPrice <= price) {
           price -= itemPrice
           progress.width('100%').text('100%')
           $(this).addClass('bg-success')
         } else {
           const percent = Math.floor((price / itemPrice) * 100)
           progress.width(percent+'%').text(percent+'%')
+          price -= itemPrice
         }
       })
 
