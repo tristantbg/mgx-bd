@@ -38,10 +38,12 @@ $(async () => {
     "https://cagnotte.me/201-margaux-30-ans-a-l-etang",
     function (response) {
       let price = $(response).find('.collected-amount-label').text()
+      let others = $("#others").text()
 
       $( "#cagnotte" ).html( price );
 
       price = parseInt(price, 10)
+      price += parseInt(others, 10)
 
       $(".gift").each(function() {
         const itemPrice = parseInt($(this).find('.price').text(), 10)
