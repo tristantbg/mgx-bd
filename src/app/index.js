@@ -52,7 +52,7 @@ $(async () => {
         if(itemPrice <= price) {
           price -= itemPrice
           progress.width('100%').text('100%')
-          $(this).addClass('bg-success done')
+          $(this).addClass('done')
         } else {
           const percent = Math.floor((price / itemPrice) * 100)
           progress.width(percent+'%').text(percent+'%')

@@ -18,8 +18,9 @@
 // maintainability.
 
 .card.done {
-  transition: transform 300ms ease 1.1s;
-  transform: scale(0.95) rotate(-6deg);
+  transition: all 300ms ease 1.1s;
+  box-shadow: 0 0 50px 10px #44ce2bb8;
+  transform: scale(0.97) rotate(-3deg);
 }
 
 .progress {
