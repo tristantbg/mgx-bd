@@ -42,6 +42,7 @@ $(async () => {
 
       $( "#cagnotte" ).html( price );
 
+      price = price.replace(/\s+/g, '')
       price = parseInt(price, 10)
       price += parseInt(others, 10)
 
